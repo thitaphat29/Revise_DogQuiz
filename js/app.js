@@ -137,14 +137,10 @@ $(document).ready(function(){
 	/*----!! Start the quiz here !!---- */
 	
 	$(".btn-start").click(function(){
-		console.log("begin");
 		showNextQuestion();
 	});
 
 	$("ul").on("click","li", function(e){
-		console.log("submit answer");
-		console.log("index is now: " +index);
-
 		checkAnswer(this);
 		displayScore();
 	});
@@ -171,7 +167,7 @@ function showNextQuestion(){
 	$(".dog-happy").css("display","none");
 	$(".dog-sad").css("display","none");
 
-	$(".feedback").css("display","none");
+	$(".feedback").fadeOut();
 	$(".intro").css("display","none");
 	$(".final-score").css("display","none");
 
@@ -284,8 +280,8 @@ function checkAnswer(selectChoice){
 }
 
 function displayModal(){
-
-	$(".feedback").css("display","block");
+	$(".feedback").fadeIn();
+	//$(".feedback").css("display","block");
 	$(".feedback .explanation").html(currentQuiz.explanation);
 
 	if(index == 10){
